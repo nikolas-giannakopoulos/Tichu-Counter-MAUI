@@ -1,0 +1,233 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:uranium="http://schemas.enisn-projects.io/dotnet/maui/uraniumui"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             x:Class="Tichu_Counter.MainPage">
+
+    <VerticalStackLayout>
+
+        <HorizontalStackLayout x:Name="MenuStackLayout" Padding="18,15,18,12">
+            <Border Padding="5" Margin="0" BackgroundColor="{AppThemeBinding Light='#FFFFFD', Dark='#1d1e24'}">
+                <!--BorderColor="{AppThemeBinding Light='#e5e5e5', Dark='#38464f'}"-->
+                <ImageButton
+                x:Name="settings_button"
+                Clicked="Settings"
+                Source="bars_icon.png"
+                HorizontalOptions="Start"
+                Background="Transparent"
+                BorderColor="Transparent" 
+                BackgroundColor="Transparent"
+                />
+                    <Border.Shadow>
+                    <Shadow Brush="Black" Offset="1,1" Opacity="0.8" Radius="10"/>
+                    </Border.Shadow>
+                    <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="11" Stroke="Black"/>
+                    </Border.StrokeShape>
+            </Border>
+            <HorizontalStackLayout HorizontalOptions="End" Spacing="15">
+                <Border Padding="3" Margin="2" BackgroundColor="{AppThemeBinding Light='#FFFFFD', Dark='#1d1e24'}">
+                    <!--BorderColor="{AppThemeBinding Light='#e5e5e5', Dark='#38464f'}"-->
+                    <ImageButton
+                x:Name="history_button"
+                Clicked="History"
+                Source="history_icon.png"
+                />
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Offset="1,1" Opacity="0.8" Radius="10"/>
+                    </Border.Shadow>
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="11" Stroke="Black"/>
+                    </Border.StrokeShape>
+                </Border>
+                <Border Padding="5" Margin="0" BackgroundColor="{AppThemeBinding Light='#FFFFFD', Dark='#1d1e24'}">
+                    <!--CornerRadius="11" BorderColor="{AppThemeBinding Light='#e5e5e5', Dark='#38464f'}"-->
+                    <ImageButton
+                x:Name="details_button"
+                Clicked="Details"
+                Source="details_icon.png"
+                />
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Offset="1,1" Opacity="0.8" Radius="10"/>
+                    </Border.Shadow>
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="11" Stroke="Black"/>
+                    </Border.StrokeShape>
+                </Border>
+            </HorizontalStackLayout>
+        </HorizontalStackLayout>
+
+        <VerticalStackLayout x:Name="GamesVSL">
+            <!-- Team A Section -->
+            <Label 
+                   x:Name="NameA"
+                   Text="Team A"
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Start" 
+                   FontSize="19" 
+                   TextColor="#6c63fe">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NameLabel_Tapped_A"/>
+                </Label.GestureRecognizers>
+                <!-- FTIAJE NA PATAEI NA ALLAJEI ONOMA -->
+            </Label>
+            <Border x:Name="TeamA"
+                   Margin="0,0,0,20" 
+                   Padding="0,0,0,10">
+                <!--CornerRadius="12" -->
+
+
+                <VerticalStackLayout x:Name="ContainerA_VSL">
+
+                    <Label  
+                            x:Name="ScoreA"
+                            Grid.Row="0" 
+                            Text="0" 
+                            FontSize="60" 
+                            FontAttributes="Bold" 
+                            HorizontalOptions="Center" 
+                            TextColor="{AppThemeBinding Light='#050505', Dark='#e5e5e5'}"/>
+
+                    <Border x:Name="FrameA" BackgroundColor="{AppThemeBinding Light='#f2f2f9', Dark='#36373c'}">
+                        <!-- CornerRadius="12"BorderColor="{AppThemeBinding Light='#d6d6d6', Dark='#191a1f'}"-->
+                        <Entry 
+                               x:Name="EntryA"
+                               Completed="EntryA_complete"
+                               TextChanged="EntryA_update"
+                               FontSize="20"
+                               FontAttributes="Bold" 
+                               HorizontalOptions="Center" 
+                               MaxLength="4" 
+                               Keyboard="Numeric" 
+                               HorizontalTextAlignment="Center"
+                               TextColor="{AppThemeBinding Light='#050505', Dark='#e5e5e5'}"/>
+                    </Border>
+
+                    <HorizontalStackLayout x:Name="ButtonsA_HSL" HorizontalOptions="Center">
+                        <VerticalStackLayout Spacing="6" x:Name="LabelTichuA_VSL">
+                            <Label x:Name="TichuA_label" HorizontalOptions="Center" Text="( +100 )" Padding="0" Margin="0" FontAttributes="Bold" TextColor="{AppThemeBinding Light='#FFFFFD', Dark='#1d1e24'}" FontSize="12"/>
+                            <AbsoluteLayout x:Name="BehindTichuA_VSL">
+                                <Button x:Name="TichuA_button" Text="TICHU" CornerRadius="15" ZIndex="1" BindingContext="{x:Reference TichuA_behind}" AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize"  Padding="12" Margin="0" Clicked="TichuA_Clicked" Pressed="Pressed" Released="Released"  WidthRequest="85" HorizontalOptions="Center" FontAttributes="Bold" BorderWidth="2" BorderColor="{AppThemeBinding Light='#d6d6d6', Dark='#38464f'}"  TextColor="{AppThemeBinding Light='#050505', Dark='#e5e5e5'}"/>
+                                <Button  x:Name="TichuA_behind" AbsoluteLayout.LayoutBounds="0, 10, AutoSize, AutoSize" ZIndex="0" HorizontalOptions="Center" WidthRequest="85" CornerRadius="15" BackgroundColor="{AppThemeBinding Light='#d6d6d6', Dark='#38464f'}"/>
+                            </AbsoluteLayout>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout  x:Name="LabelGrandA_VSL">
+                            <Label x:Name="GrandA_label" class="ter" HorizontalOptions="Center"  Text="( +200 )"  FontAttributes="Bold" TextColor="{AppThemeBinding Light='#FFFFFD', Dark='#1d1e24'}" FontSize="12"/>
+                            <AbsoluteLayout  x:Name="BehindGrandA_VSL">
+                                <Button x:Name="GrandA_button" AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize" ZIndex="1" BindingContext="{x:Reference GrandA_behind}" Padding="12" Margin="0" WidthRequest="85" Clicked="GrandA_Clicked" Pressed="Pressed" Released="Released" HorizontalOptions="Center" Text="GRAND" CornerRadius="15" FontAttributes="Bold" BorderColor="{AppThemeBinding Light='#d6d6d6', Dark='#38464f'}"  TextColor="{AppThemeBinding Light='#050505', Dark='#e5e5e5'}" BorderWidth="2"/>
+                                <Button x:Name="GrandA_behind" AbsoluteLayout.LayoutBounds="0, 10, AutoSize, AutoSize" ZIndex="0" HorizontalOptions="Center"  WidthRequest="85"  CornerRadius="15" BackgroundColor="{AppThemeBinding Light='#d6d6d6', Dark='#38464f'}" />
+                            </AbsoluteLayout>
+
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout  x:Name="LabelDoubleA_VSL">
+                            <Label x:Name="DoubleA_label" HorizontalOptions="Center"  Text="( +200 )"  FontAttributes="Bold" TextColor="{AppThemeBinding Light='#FFFFFD', Dark='#1d1e24'}" FontSize="12"/>
+                            <AbsoluteLayout x:Name="BehindDoubleA_VSL">
+                                <Button x:Name="DoubleA_button" AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize" ZIndex="1" BindingContext="{x:Reference DoubleA_behind}" WidthRequest="85" Clicked="DoubleA_Clicked" Pressed="Pressed" Margin="0" FontSize="13.9" Released="Released" HorizontalOptions="Center" Padding="12" Text="ΕΝΑ-ΔΥΟ" LineBreakMode="WordWrap" CornerRadius="15" FontAttributes="Bold" BorderColor="{AppThemeBinding Light='#d6d6d6', Dark='#38464f'}" TextColor="{AppThemeBinding Light='#050505', Dark='#e5e5e5'}" BorderWidth="2"/>
+                                <Button x:Name="DoubleA_behind" AbsoluteLayout.LayoutBounds="0, 10, AutoSize, AutoSize" ZIndex="0" HorizontalOptions="Center" WidthRequest="85" CornerRadius="15" BackgroundColor="{AppThemeBinding Light='#d6d6d6', Dark='#38464f'}"/>
+                            </AbsoluteLayout>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+            <!-- Team B Section -->
+            <Label Grid.Row="2"  
+                   x:Name="NameB"
+                   Text="TEAM B" 
+                   Margin="20,0,0,2" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Start" 
+                   FontSize="19" 
+                   TextColor="#6c63fe">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NameLabel_Tapped_B" x:Name="NameBTap"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Border x:Name="TeamB" Margin="0,0,0,20" Padding="0,0,0,15">
+                <!-- CornerRadius="12" -->
+                <VerticalStackLayout x:Name="ContainerB_VSL">
+                    <Label  
+                            x:Name="ScoreB"
+                            Grid.Row="0" 
+                            Text="0" 
+                            FontSize="60" 
+                            FontAttributes="Bold" 
+                            HorizontalOptions="Center" 
+                            TextColor="{AppThemeBinding Light='#050505', Dark='#e5e5e5'}"/>
+
+                    <Border x:Name="FrameB" BackgroundColor="{AppThemeBinding Light='#f2f2f9', Dark='#36373c'}"> <!--CornerRadius="12" BorderColor="{AppThemeBinding Light='#d6d6d6', Dark='#191a1f'}"-->
+                        <Entry 
+                               x:Name="EntryB"
+                               Completed="EntryB_complete"
+                               TextChanged="EntryB_update"
+                               FontSize="20"
+                               FontAttributes="Bold" 
+                               HorizontalOptions="Center" 
+                               MaxLength="4" 
+                               Keyboard="Numeric" 
+                               HorizontalTextAlignment="Center"
+                               TextColor="{AppThemeBinding Light='#050505', Dark='#e5e5e5'}"/>
+                    </Border>
+
+                    <HorizontalStackLayout x:Name="ButtonsB_HSL" HorizontalOptions="Center">
+                        <VerticalStackLayout  x:Name="LabelTichuΒ_VSL">
+                            <Label x:Name="TichuB_label" HorizontalOptions="Center" Grid.Column="0" Text="( +100 )" FontAttributes="Bold" TextColor="{AppThemeBinding Light='#FFFFFD', Dark='#1d1e24'}" FontSize="12"/>
+                            <AbsoluteLayout  x:Name="BehindTichuΒ_VSL" Padding="0">
+                                <Button x:Name="TichuΒ_button" AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize" ZIndex="1" BindingContext="{x:Reference TichuΒ_behind}" Padding="12" Margin="0" Clicked="TichuB_Clicked" Pressed="Pressed" Released="Released"  WidthRequest="85" HorizontalOptions="Center" Text="TICHU" CornerRadius="15" FontAttributes="Bold" BorderWidth="2" BorderColor="{AppThemeBinding Light='#d6d6d6', Dark='#38464f'}" TextColor="{AppThemeBinding Light='#050505', Dark='#e5e5e5'}"/>
+                                <Button x:Name="TichuΒ_behind" AbsoluteLayout.LayoutBounds="0, 10, AutoSize, AutoSize" ZIndex="0" HorizontalOptions="Center" WidthRequest="85" CornerRadius="15" BackgroundColor="{AppThemeBinding Light='#d6d6d6', Dark='#38464f'}"/>
+
+                            </AbsoluteLayout>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout  x:Name="LabelGrandΒ_VSL">
+                            <Label x:Name="GrandΒ_label" class="ter" HorizontalOptions="Center"  Text="( +200 )"  FontAttributes="Bold" TextColor="{AppThemeBinding Light='#FFFFFD', Dark='#1d1e24'}" FontSize="12"/>
+                            <AbsoluteLayout  x:Name="BehindGrandΒ_VSL">
+                                <Button x:Name="GrandΒ_button" AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize" ZIndex="1" BindingContext="{x:Reference GrandΒ_behind}" Padding="12" Margin="0" WidthRequest="85" Clicked="GrandB_Clicked" Pressed="Pressed" Released="Released" HorizontalOptions="Center" Text="GRAND" CornerRadius="15" FontAttributes="Bold" BorderColor="{AppThemeBinding Light='#d6d6d6', Dark='#38464f'}" BorderWidth="2" TextColor="{AppThemeBinding Light='#050505', Dark='#e5e5e5'}"/>
+                                <Button x:Name="GrandΒ_behind" AbsoluteLayout.LayoutBounds="0, 10, AutoSize, AutoSize" ZIndex="0" HorizontalOptions="Center"  WidthRequest="85"  CornerRadius="15" BackgroundColor="{AppThemeBinding Light='#d6d6d6', Dark='#38464f'}" />
+                            </AbsoluteLayout>
+
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout  x:Name="LabelDoubleΒ_VSL">
+                            <Label x:Name="DoubleΒ_label" HorizontalOptions="Center"  Text="( +200 )"  FontAttributes="Bold" TextColor="{AppThemeBinding Light='#FFFFFD', Dark='#1d1e24'}" FontSize="12"/>
+                            <AbsoluteLayout x:Name="BehindDoubleΒ_VSL">
+                                <Button x:Name="DoubleΒ_button" AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize" ZIndex="1" BindingContext="{x:Reference DoubleΒ_behind}" WidthRequest="85" Clicked="DoubleB_Clicked" Pressed="Pressed" Margin="0" FontSize="13.9" Released="Released" HorizontalOptions="Center" Padding="12" Text="ΕΝΑ-ΔΥΟ" LineBreakMode="WordWrap" CornerRadius="15" FontAttributes="Bold" BorderColor="{AppThemeBinding Light='#d6d6d6', Dark='#38464f'}" BorderWidth="2" TextColor="{AppThemeBinding Light='#050505', Dark='#e5e5e5'}"/>
+                                <Button x:Name="DoubleΒ_behind" AbsoluteLayout.LayoutBounds="0,10, AutoSize, AutoSize" ZIndex="0" HorizontalOptions="Center" WidthRequest="85" CornerRadius="15" BackgroundColor="{AppThemeBinding Light='#d6d6d6', Dark='#38464f'}"/>
+
+                            </AbsoluteLayout>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+            <Grid RowDefinitions="Auto,100">
+                <HorizontalStackLayout Grid.Row="0" HorizontalOptions="Center" Spacing="55" ZIndex="1">
+                    <ImageButton x:Name="UndoButton" Clicked="Undo" Grid.Column="0" Source="undo_icon.png"  WidthRequest="35" HeightRequest="35" />
+                    <VerticalStackLayout Spacing="-65" >
+                        <ImageButton  x:Name="SubmitBack" Grid.Column="1" Source="sumbit_bg.png" WidthRequest="60" HeightRequest="60" BorderColor="AliceBlue"/>
+                        <ImageButton x:Name="SubmitButton" Clicked="Submit" Pressed="ImageButton_Pressed" Released="ImageButton_Released" Grid.Column="1" Source="sumbit2_icon.png" WidthRequest="60" HeightRequest="60"/>
+                    </VerticalStackLayout>
+                    <ImageButton x:Name="NewButton" Clicked="New" Grid.Column="2" Source="new_icon.png" WidthRequest="35" HeightRequest="35"/>
+                </HorizontalStackLayout>
+                <Border x:Name="NotificationCard" Grid.Row="1" BackgroundColor="#000000" Padding="0" WidthRequest="300" HeightRequest="50" ZIndex="2">
+                    <!-- CornerRadius="12" BorderColor="#000000" -->
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label x:Name="CardText" Text="Went too fast?" FontSize="15" TextColor="#ffffff" HorizontalOptions="Start" VerticalOptions="Center" Margin="15,0,0,0"/>
+                        <Label  x:Name="RedoButton"
+                            Text="Undo"
+                            VerticalOptions="Center"
+                            HorizontalOptions="End"
+                            Margin="0,0,25,0"
+                            FontSize="15" 
+                            TextColor="Yellow">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Redo" x:Name="RedoButtonTap"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                </Border>
+            </Grid>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<the49:BottomSheet xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tichu_Counter.SettingsBottomSheet"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:the49="https://schemas.the49.com/dotnet/2023/maui"
+             Padding="16,32" HasBackdrop="true" HasHandle="True" Dismissed="BottomSheet_Dismissed">
+
+    <the49:BottomSheet.Detents>
+        <!-- Stop at the height of the screen -->
+        <the49:RatioDetent Ratio="0.5" />
+    </the49:BottomSheet.Detents>
+    
+    <!-- Main Buttons -->
+    <VerticalStackLayout Spacing="15" Margin="0,15,0,15" x:Name="view1">
+
+        <!-- Theme Button -->
+        <Border 
+            x:Name="ThemeButton"
+            StrokeShape="RoundRectangle 13"
+            StrokeThickness="0"
+            BackgroundColor="#6c63fe"
+            HeightRequest="50"
+            WidthRequest="300"        
+            HorizontalOptions="Center"
+            Padding="30,5">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer
+                    Tapped="ThemeButton_Click"
+                    NumberOfTapsRequired="1"/>
+            </Border.GestureRecognizers>
+
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Image Source="bucket_icon.png"
+                       HeightRequest="18"
+                       VerticalOptions="Center"/>
+                <Label Text="Theme"
+                       TextColor="white"
+                       VerticalOptions="Center"
+                       FontAttributes="Bold"
+                       FontFamily="featherBold"
+                       FontSize="16"/>
+            </HorizontalStackLayout>
+        </Border>
+        
+        <!-- Language Button -->
+        <Border 
+            x:Name="LanguageButton"
+            StrokeShape="RoundRectangle 13"
+            StrokeThickness="0"
+            BackgroundColor="#6c63fe"
+            HeightRequest="50"
+            WidthRequest="300"
+            HorizontalOptions="Center"          
+            Padding="30,5">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer
+                    Tapped="LanguageButton_Click"
+                    NumberOfTapsRequired="1"/>
+            </Border.GestureRecognizers>
+            
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Image Source="uk_icon.png"
+                   HeightRequest="18"
+                   VerticalOptions="Center"/>
+                <Label Text="Language"
+                       TextColor="white"
+                       VerticalOptions="Center"
+                       FontFamily="featherBold"
+                       FontAttributes="Bold"
+                       FontSize="16"/>
+            </HorizontalStackLayout>
+        </Border>
+
+        <!-- Help Button -->
+        <Border 
+            x:Name="HelpButton"
+            StrokeShape="RoundRectangle 13"
+            StrokeThickness="0"
+            BackgroundColor="#6c63fe"
+            HeightRequest="50"
+            WidthRequest="300"
+            HorizontalOptions="Center"
+            Padding="30,5">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer
+                    Tapped="HelpButton_Click"
+                    NumberOfTapsRequired="1"/>
+            </Border.GestureRecognizers>
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Image Source="how_icon.png"
+                   HeightRequest="18"
+                   VerticalOptions="Center"/>
+                <Label Text="Help"
+                       TextColor="white"
+                       VerticalOptions="Center"
+                       FontFamily="featherBold"
+                       FontAttributes="Bold"
+                       FontSize="16"/>
+            </HorizontalStackLayout>
+        </Border>
+
+        <!-- About Button -->
+        <Border 
+            x:Name="AboutButton"
+            StrokeShape="RoundRectangle 13"
+            StrokeThickness="0"
+            BackgroundColor="#6c63fe"
+            HeightRequest="50"
+            WidthRequest="300"
+            HorizontalOptions="Center"
+            
+            
+            Padding="30,5">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer
+                    x:Name="ger"
+                    Tapped="AboutButton_Click"
+                    NumberOfTapsRequired="1"/>
+            </Border.GestureRecognizers>
+            <Border.Behaviors>
+                <toolkit:TouchBehavior>
+                    
+                </toolkit:TouchBehavior>
+            </Border.Behaviors>
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Image Source="about_icon.png"
+                   HeightRequest="18"
+                   VerticalOptions="Center"
+                       HorizontalOptions="Start"/>
+                <Label Text="About"
+                       TextColor="white"
+                       VerticalOptions="Center"
+                       FontFamily="featherBold"
+                       FontAttributes="Bold"
+                       FontSize="16"/>
+            </HorizontalStackLayout>
+        </Border>
+        
+        <!-- Back button-->
+        <Label Text="Back" x:Name="BackButton" TextColor="#6c63fe" HorizontalOptions="Center" FontSize="18" Margin="0,5,0,0" FontFamily="featherBold">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer
+                    Tapped="BackButton_Click"
+                    NumberOfTapsRequired="1"/>
+            </Label.GestureRecognizers>
+        </Label>
+        
+        <!-- THEME SECTION BUTTONS-->
+        
+        <!-- Theme: Back Button-->
+        <ImageButton x:Name="BackButtonTheme" Clicked="BackButtonTheme_Click" Source="back_icon.png" WidthRequest="42" HeightRequest="42" HorizontalOptions="Start" IsVisible="false"/>
+        
+        <!-- Light Theme Button-->
+        <Border StrokeShape="RoundRectangle 13"
+                x:Name="LightTheme"   
+                IsVisible="false"
+                StrokeThickness="0"
+                BackgroundColor="#9D97F8"
+                HeightRequest="50"
+                WidthRequest="300"
+                HorizontalOptions="Center"
+                Padding="30,5">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer
+                    Tapped="LightTheme_Click"
+                    NumberOfTapsRequired="1"/>
+            </Border.GestureRecognizers>
+            <Label Text="Light Theme"
+                       TextColor="white"
+                       VerticalOptions="Center"
+                       FontAttributes="Bold"
+                       FontSize="16"
+                       HorizontalTextAlignment="Center"/>
+        </Border>
+        
+        
+        <Border StrokeShape="RoundRectangle 13"
+                x:Name="DarkTheme"   
+                IsVisible="false"
+                StrokeThickness="0"
+                BackgroundColor="#9D97F8"
+                HeightRequest="50"
+                WidthRequest="300"
+                HorizontalOptions="Center"
+                Padding="30,5">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer
+                    Tapped="DarkTheme_Click"
+                    NumberOfTapsRequired="1"/>
+            </Border.GestureRecognizers>
+            <Label Text="Dark Theme"
+                       TextColor="white"
+                       VerticalOptions="Center"
+                       FontAttributes="Bold"
+                       FontSize="16" HorizontalTextAlignment="Center"/>
+        </Border>
+
+        
+        <!-- Language Buttons -->
+
+        <ImageButton x:Name="BackButtonLanguage" Clicked="BackButtonLanguage_Click" Source="back_icon.png" WidthRequest="42" HeightRequest="42" HorizontalOptions="Start" IsVisible="false"/>
+         
+        <Border StrokeShape="RoundRectangle 13"
+                StrokeThickness="0"
+                x:Name="English"
+                BackgroundColor="#6c63fe"
+                HeightRequest="50"
+                WidthRequest="300"
+                IsVisible="false"
+                HorizontalOptions="Center"               
+                Padding="30,5">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer
+                    Tapped="English_Click"
+                    NumberOfTapsRequired="1"/>
+            </Border.GestureRecognizers>
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Image Source="uk_icon.png"
+                   HeightRequest="18"
+                   VerticalOptions="Center"/>
+                <Label Text="English"
+                       TextColor="white"
+                       VerticalOptions="Center"
+                       FontAttributes="Bold"
+                       FontSize="16"/>
+
+            </HorizontalStackLayout>
+        </Border>
+        
+        <Border StrokeShape="RoundRectangle 13"
+            StrokeThickness="0"
+            x:Name="Greek"
+            BackgroundColor="#6c63fe"
+            HeightRequest="50"
+            WidthRequest="300"
+            IsVisible="false"
+            HorizontalOptions="Center"      
+            Padding="30,5">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer
+                    Tapped="Greek_Click"
+                    NumberOfTapsRequired="1"/>
+            </Border.GestureRecognizers>
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Image Source="gr_icon.png"
+                   HeightRequest="18"
+                   VerticalOptions="Center"/>
+                <Label Text="Greek"
+                       TextColor="white"
+                       VerticalOptions="Center"
+                       FontAttributes="Bold"
+                       FontSize="16"/>
+            </HorizontalStackLayout>
+        </Border>
+        
+    </VerticalStackLayout>
+</the49:BottomSheet>

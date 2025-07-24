@@ -1,0 +1,29 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Tichu_Counter"
+             x:Class="Tichu_Counter.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary x:Name="appColors" Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary x:Name="appStyles" Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style ApplyToDerivedTypes="True" TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light='#f9f9f9', Dark='#191a1f'}"></Setter>
+            </Style>
+            <Style ApplyToDerivedTypes="True" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light='#FFFFFD', Dark='#1d1e24'}"/>
+                <Setter Property="BorderColor" Value="{AppThemeBinding Light='#e5e5e5', Dark='#38464f'}"/>
+            </Style>
+            <Style ApplyToDerivedTypes="True" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light='#FFFFFD', Dark='#1d1e24'}"/>
+                <Setter Property="TextColor"  Value="{AppThemeBinding Light='#050505', Dark='#e5e5e5'}"/>
+            </Style>
+            <!-- <Style ApplyToDerivedTypes="True" TargetType="Label">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light='#050505', Dark='#e5e5e5'}"/>
+            </Style> -->
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

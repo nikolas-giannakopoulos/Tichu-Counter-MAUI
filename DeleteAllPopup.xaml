@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ct:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
+             x:Class="Tichu_Counter.DeleteAllPopup"
+             Color="Transparent"
+             
+             Opened="Popup_Opened"
+             Closed="Popup_Closed"
+                >
+    <Border BackgroundColor="{AppThemeBinding Light='#f9f9f9', Dark='#191a1f'}" Stroke="{AppThemeBinding Light='#e5e5e5', Dark='#38464f'}" StrokeThickness="1">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="15" />
+        </Border.StrokeShape>
+        <VerticalStackLayout Spacing="15" Padding="20" x:Name="popup">
+            <Label Text="Are you sure you want to delete all the matches?" HorizontalTextAlignment="Center" TextColor="{AppThemeBinding Light='#050505', Dark='#e5e5e5'}"/>
+            <HorizontalStackLayout Spacing="15" HorizontalOptions="Center" HeightRequest="40">
+                <AbsoluteLayout x:Name="CancelButtons">
+                    <Button x:Name="Cancel_button" Text="Cancel" FontSize="15" CornerRadius="15" ZIndex="1" BindingContext="{x:Reference TichuA_behind}" AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize"  Padding="12" Margin="0" Clicked="Cancel" Pressed="Pressed"  Released="Released"  WidthRequest="85" HorizontalOptions="Center" FontAttributes="Bold" BorderWidth="2" BorderColor="{AppThemeBinding Light='#d6d6d6', Dark='#38464f'}"  TextColor="{AppThemeBinding Light='#050505', Dark='#e5e5e5'}"/>
+                    <Button  x:Name="Cancel_behind" AbsoluteLayout.LayoutBounds="0, 10, AutoSize, AutoSize" ZIndex="0" HorizontalOptions="Center" WidthRequest="85" CornerRadius="15" BackgroundColor="{AppThemeBinding Light='#d6d6d6', Dark='#38464f'}"/>
+                </AbsoluteLayout>
+                <AbsoluteLayout x:Name="AcceptButtons">
+                    <Button x:Name="Accept_button" Text="Delete" FontSize="15" CornerRadius="15" ZIndex="1" BindingContext="{x:Reference TichuA_behind}" AbsoluteLayout.LayoutBounds="0, 0, AutoSize, AutoSize"  Padding="12" Margin="0" Clicked="Accept" Pressed="Pressed" Released="Released"  WidthRequest="85" HorizontalOptions="Center" FontAttributes="Bold" BorderWidth="2" BorderColor="#fc4e69"  TextColor="#fc4e69" BackgroundColor="{AppThemeBinding Light='#ffe8e8', Dark='#34232b'}"/>
+                    <Button  x:Name="Accept_behind" AbsoluteLayout.LayoutBounds="0, 10, AutoSize, AutoSize" ZIndex="0" HorizontalOptions="Center" WidthRequest="85" CornerRadius="15" BackgroundColor="#fc4e69"/>
+                </AbsoluteLayout>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Border>
+</ct:Popup>

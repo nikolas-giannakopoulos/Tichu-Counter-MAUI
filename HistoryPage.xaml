@@ -1,0 +1,25 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tichu_Counter.HistoryPage"
+             Padding="16,14"
+             >
+
+    <!-- Main Buttons -->
+    <VerticalStackLayout x:Name="VSL">
+        <!-- Το βελακι να το κανω "Back"-->
+        <Grid ColumnDefinitions="Auto,Auto,*" Padding="0,0,5,0">
+            <ImageButton Grid.Column="0" HorizontalOptions="Start" x:Name="BackButtonTheme" Clicked="BackButton" Source="back_icon.png"  WidthRequest="36" HeightRequest="36" IsVisible="true"/>
+            <Label Grid.Column="1" HorizontalOptions="Center" Text="Past Matches" Padding="25,0,0,0"  FontSize="20" TextColor="#6c63fe" VerticalTextAlignment="Center"/>
+            <Frame Grid.Column="2" HorizontalOptions="End" CornerRadius="11" Padding="5" Margin="0" BackgroundColor="{AppThemeBinding Light='#FFFFFD', Dark='#1d1e24'}" BorderColor="{AppThemeBinding Light='#e5e5e5', Dark='#38464f'}">
+                <ImageButton x:Name="DeleteAll_Button" HorizontalOptions="End" Clicked="DeleteAll_Click" Source="bin_all_icon.png"  WidthRequest="36" HeightRequest="36" IsVisible="true" />
+                <Frame.Shadow>
+                    <Shadow Brush="Black" Offset="1,1" Opacity="0.8" Radius="10"/>
+                </Frame.Shadow>
+            </Frame>
+        </Grid>
+        <ScrollView Margin="0,15,0,15" x:Name="view1">
+            <StackLayout Spacing="5" x:Name="ScrollStack">
+            </StackLayout>
+            </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>
