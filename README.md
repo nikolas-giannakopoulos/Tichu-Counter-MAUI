@@ -1,7 +1,8 @@
-# Tichu Counter (.NET MAUI) ❌ (Cancelled)
+# Tichu Counter (.NET MAUI)
 
 A **Tichu card game score counter** originally developed with **.NET MAUI**.  
-The project has been **cancelled** and is now being continued in **React Native** for better framework support.  
+
+❌ **Disclaimer:** The project has been **cancelled** and is now being continued in **React Native** for better framework support.  
 👉 Check the new repository here: [Tichu-Counter](https://github.com/nikolas-giannakopoulos/Tichu-Counter)
 
 ## Features (Planned in .NET MAUI Version)
@@ -22,3 +23,4 @@ The project has been **cancelled** and is now being continued in **React Native*
 - Visual Studio 2022 (with MAUI workload installed)
 
 ---
+
