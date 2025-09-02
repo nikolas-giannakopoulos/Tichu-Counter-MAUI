@@ -3,7 +3,6 @@
 A **Tichu card game score counter** originally developed with **.NET MAUI**.  
 
 ❌ **Disclaimer:** The project has been **cancelled** and is now being continued in **React Native** for better framework support.  
-👉 Check the new repository here: [Tichu-Counter](https://github.com/nikolas-giannakopoulos/Tichu-Counter)
 
 ## Features (Planned in .NET MAUI Version)
 - Input checks for valid scores  
@@ -23,4 +22,5 @@ A **Tichu card game score counter** originally developed with **.NET MAUI**.
 - Visual Studio 2022 (with MAUI workload installed)
 
 ---
+
 
